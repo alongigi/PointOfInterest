@@ -1,0 +1,52 @@
+<div ng-hide="currentUser">
+        <fieldset style="padding: 20px; margin-left: 500px;height: 200px; width: 700px; margin-top: 100px;">
+            <h1>Hello new user !</h1>
+            <h1>You can enjoy the POI site by login or register</h1>
+        </fieldset>
+</div>
+
+<div ng-show="currentUser" class="row" ng-show="userPointsOfInterest">
+    <div class="col-sm-5">
+        <h1 class="poi-header">Last saved POI</h1>
+        <div class="row">
+            <div ng-click="goToPOI(poi)" ng-repeat="poi in userPointsOfInterest" class="col-sm-6">
+                <div class="card">
+                    <img style="width: 320px; height: 200px;" ng-src="./assets/images/{{ poi.image }}.jpeg" alt="Avatar">
+                    <h4><b>{{ poi.name }}</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <form ng-show="userPointsOfInterest && userPointsOfInterest.length == 0" id="myform" ng-submit="register()">
+            <fieldset style="width: 900px;padding: 20px; margin-left: -120px">
+                <div>
+                    <h1><b>You have not saved any POI yet.</b></h1>
+                    <h1><b>In order to save, please click on any POI star icon, and save in you favorite POI page</b></h1>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-5">
+        <h1 class="poi-header">Recommended Points Of Interests</h1>
+        <div class="row">
+            <div ng-click="goToPOI(poi)" ng-repeat="poi in firstCategoryPOI" class="col-sm-6">
+                <div class="card">
+                    <img style="width: 320px; height: 200px;" ng-src="./assets/images/{{ poi.image }}.jpeg" alt="Avatar">
+                    <h4><b>{{ poi.name }}</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div ng-click="goToPOI(poi)" ng-repeat="poi in secondCategoryPOI" class="col-sm-6">
+                <div class="card">
+                    <img style="width: 320px; height: 200px;" ng-src="./assets/images/{{ poi.image }}.jpeg" alt="Avatar">
+                    <h4><b>{{ poi.name }}</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

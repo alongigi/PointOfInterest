@@ -1,0 +1,48 @@
+<div class="row">
+    <form  id="myform" ng-submit="register()">
+        <fieldset style="width: 900px;padding: 20px; margin-left: -200px">
+            <h1>Register</h1>
+            <div class="col-sm-6">
+                <input name="userName" placeholder="User Name" ng-model="user.userName" required>
+                <input name="firstname" placeholder="First Name" ng-model="user.firstName" required>
+                <input name="lastname" placeholder="Last Name" ng-model="user.lastName" required>
+                <input type="email" name="email" placeholder="Email" ng-model="user.email" required>
+                <input type="password" name="password" placeholder="Password" ng-model="user.password" required>
+                <select style="height: 57px; font-size: 20px;" class="form-control" name="country" ng-model="user.country" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option ng-repeat="country in countries" value="{{ country.ID }}">{{ country.Name }}</option>
+                </select>
+                <input name="city" placeholder="City" ng-model="user.city" required>
+            </div>
+
+            <div class="col-sm-6">
+
+                <select style="height: 57px; font-size: 20px; padding: 5px" class="form-control" name="category" ng-model="user.category1"
+                        required>
+                    <option value="" disabled selected>Select your first favorite category</option>
+                    <option ng-repeat="category in categories" value="{{ category.categoryId }}">{{ category.name }}</option>
+                </select>
+                <select style="height: 57px; font-size: 20px; margin-bottom: 5px" class="form-control" name="country" ng-model="user.category2"
+                        required>
+                    <option value="" disabled selected>Select your second favorite category</option>
+                    <option ng-repeat="category in categories" value="{{ category.categoryId }}">{{ category.name }}</option>
+                </select>
+                <select style="height: 57px; font-size: 20px; margin-bottom: 5px" class="form-control" name="question1" ng-model="user.question1" required>
+                    <option value="" disabled selected>Select your first question</option>
+                    <option ng-repeat="question in questions" value="{{ question.questionId }}">{{ question.content }}</option>
+                </select>
+                <input name="answer1" placeholder="Answer" ng-model="user.answer1" required>
+                <select style="height: 57px; font-size: 20px; margin-bottom: 5px" class="form-control" name="country" ng-model="user.question2" required>
+                    <option value="" disabled selected>Select your second question</option>
+                    <option ng-repeat="question in questions" value="{{ question.questionId }}">{{ question.content }}</option>
+                </select>
+
+                <input name="answer2" placeholder="Answer" ng-model="user.answer2" required>
+            </div>
+
+            <p ng-show="errorMessage">{{ errorMessage }}</p>
+
+            <input ng-disabled="myForm.$invalid" type="submit" name="Register" class="next action-button" value="Register" />
+        </fieldset>
+    </form>
+</div>

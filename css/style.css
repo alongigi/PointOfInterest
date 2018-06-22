@@ -1,0 +1,19 @@
+@import "navbar.css";
+@import "homepage.css";
+@import "form.css";
+@import "point-of-interest.css";
+@import "create-review.css";
+@import "comment.css";
+
+body {
+    margin:0;
+    padding:0;
+    font: bold italic 2em/1em "Times New Roman", "MS Serif", "New York", serif;
+    background-image:url('https://ak6.picdn.net/shutterstock/videos/9524276/thumb/1.jpg');
+
+}
+
+.error {
+    color: red;
+    padding-bottom: 10px;
+}
